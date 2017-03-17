@@ -1,8 +1,5 @@
----
-layout: post
-title: Lovely Functional Haskell
-image: /images/haskell/findmoves1.png
----
+
+# Eight of Solitaire 
 
 For an assignment, I had to make an implementation of a Solitaire (Patience) card game in Haskell, an advanced, purely functional programming language.  The particular variant of Solitaire is called [8-Off](https://en.wikipedia.org/wiki/Eight_Off).
 
