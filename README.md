@@ -14,7 +14,7 @@ The main bulk of this page is showing how I made an 'auto-solve' function, which
 
 #### Design
 
-![](http://jamesmilton.me/images/haskell/design.png)
+![](http://jamesmilton.me/images/2017/03/haskell/design.png)
 
 ---
 
@@ -45,55 +45,55 @@ Given an EOBoard, if Nth card in column can be moved to foundation, this functio
 
 #####  `findMoves :: EOBoard -> [EOBoard]`
 Given an EOBoard, findMoves will display the outputs of the above functions, if legal. If the function move is legal and not the same as the given EOBoard, it will be added to the list findMoves outputs. If the move is not available or it is not different to the original EOBoard, it will not be shown on the in the outputted list. findMoves outputs the list of EOBoards in order of how good of a move they are. For example, an EOBoard at the top of the list from findMoves will be better than an EOBoard move at the bottom of the list.
-![](http://jamesmilton.me/images/haskell/findmoves1.png)
+![](http://jamesmilton.me/images/2017/03/haskell/findmoves1.png)
 
-![](http://jamesmilton.me/images/haskell/findmoves2.png)
+![](http://jamesmilton.me/images/2017/03/haskell/findmoves2.png)
 
-![](http://jamesmilton.me/images/haskell/findmoves3.png)
+![](http://jamesmilton.me/images/2017/03/haskell/findmoves3.png)
 
-![](http://jamesmilton.me/images/haskell/findmoves4.png)
+![](http://jamesmilton.me/images/2017/03/haskell/findmoves4.png)
 
-![](http://jamesmilton.me/images/haskell/findmoves5.png)
+![](http://jamesmilton.me/images/2017/03/haskell/findmoves5.png)
 
 #####  `chooseMove :: EOBoard -> Maybe EOBoard`
 Given an EOBoard, chooseMove takes that EOBoard and then passes it to findMoves to find the list of available moves. If findMoves returns with a list of no EOBoards, chooseMove will consquesntly return Nothing. If findMoves returns with a list of at least 1 EOBoard, chooseMoves will return Just the first EOBoard in the list, as that would be the best move in the list.
-![](http://jamesmilton.me/images/haskell/choosemoves1.png)
+![](http://jamesmilton.me/images/2017/03/haskell/choosemoves1.png)
 
-![](http://jamesmilton.me/images/haskell/choosemoves2.png)
+![](http://jamesmilton.me/images/2017/03/haskell/choosemoves2.png)
 
-![](http://jamesmilton.me/images/haskell/choosemoves3.png)
+![](http://jamesmilton.me/images/2017/03/haskell/choosemoves3.png)
 
 #####  `score :: EOBoard -> Int`
 Given an EOBoard, score will return an Int corresponding to the number of cards that have been moved to the foundation. A winning score would be a score of 52.
-![](http://jamesmilton.me/images/haskell/score1.png)
+![](http://jamesmilton.me/images/2017/03/haskell/score1.png)
 
-![](http://jamesmilton.me/images/haskell/score2.png)
+![](http://jamesmilton.me/images/2017/03/haskell/score2.png)
 
-![](http://jamesmilton.me/images/haskell/score3.png)
+![](http://jamesmilton.me/images/2017/03/haskell/score3.png)
 
-![](http://jamesmilton.me/images/haskell/score4.png)
+![](http://jamesmilton.me/images/2017/03/haskell/score4.png)
 
 #####  `eOGame :: EOBoard -> Int`
 Given an EOBoard, eOGame will play that EOBoard and will then return the score of which it managed to get to by exhausting all available moves.
-![](http://jamesmilton.me/images/haskell/eogame1.png)
+![](http://jamesmilton.me/images/2017/03/haskell/eogame1.png)
 
-![](http://jamesmilton.me/images/haskell/eogame2.png)
+![](http://jamesmilton.me/images/2017/03/haskell/eogame2.png)
 
-![](http://jamesmilton.me/images/haskell/eogame3.png)
+![](http://jamesmilton.me/images/2017/03/haskell/eogame3.png)
 
 #####  `eOExptAUX :: Int -> [Int]`
 Given an initial random seed, eOExpt will pass the initial random seed to eODeal and pass the score from that eODeal game into a list. eODeal will then increment that seed 100 times and then return a list of the 100 scores.
 average :: (Real a, Fractional b) => [a] -> b
 Given a list of Ints, average will simply find the average of that list and then return as a float.
-![](http://jamesmilton.me/images/haskell/eoexptaux1.png)
+![](http://jamesmilton.me/images/2017/03/haskell/eoexptaux1.png)
 
-![](http://jamesmilton.me/images/haskell/eoexptaux2.png)
+![](http://jamesmilton.me/images/2017/03/haskell/eoexptaux2.png)
 
 #####  `eOExpt :: Int -> (Int,Float)`
 Given an initial random seed, eOExpt will pass the initial random seed to eOExptAUX which will then return a list of 100 scores from the initial seed. This list is then processed by average to return the average of all the scores. As well as this, the list from eOExptAUX is then filtered to find the number of times there was a win. Both the number of wins and the average of all the score are then returned as a tuple.
-![](http://jamesmilton.me/images/haskell/eoexpt1.png)
+![](http://jamesmilton.me/images/2017/03/haskell/eoexpt1.png)
 
-![](http://jamesmilton.me/images/haskell/eoexpt2.png)
+![](http://jamesmilton.me/images/2017/03/haskell/eoexpt2.png)
 
 ---
 
