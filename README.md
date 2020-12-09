@@ -1,3 +1,5 @@
+https://jamesmilton.me/functional-haskell
+
 
 # Eight of Solitaire 
 
